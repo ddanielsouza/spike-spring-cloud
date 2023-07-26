@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>souza.oliveira.daniel</groupId>
-	<artifactId>msclientes</artifactId>
+	<artifactId>msavaliadorcredito</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>msclientes</name>
-	<description>Client microservice </description>
+	<name>msavaliadorcredito</name>
+	<description>Serviço de cartões</description>
 	<properties>
 		<java.version>11</java.version>
 		<spring-cloud.version>2021.0.1</spring-cloud.version>
@@ -32,6 +32,7 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -46,6 +47,7 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
+			<optional>true</optional>
 			<version>${lombok.version}</version>
 		</dependency>
 		<dependency>
@@ -59,7 +61,6 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
