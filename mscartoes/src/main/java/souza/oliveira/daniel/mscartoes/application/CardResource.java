@@ -7,9 +7,13 @@ import org.springframework.web.bind.annotation.*;
 import souza.oliveira.daniel.mscartoes.application.dto.CardSaveRequestDTO;
 import souza.oliveira.daniel.mscartoes.application.mapper.CardMapper;
 import souza.oliveira.daniel.mscartoes.domain.Card;
+import souza.oliveira.daniel.mscartoes.domain.CardBrand;
+import souza.oliveira.daniel.mscartoes.domain.CustomerCard;
 import souza.oliveira.daniel.mscartoes.services.CardService;
+import souza.oliveira.daniel.mscartoes.services.CustomerCardService;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -18,11 +22,15 @@ public class CardResource {
 
     private final CardService cardService;
     private final CardMapper cardMapper;
+    private final CustomerCardService customerCardService;
 
     @Autowired
-    public CardResource(CardService cardService, CardMapper cardMapper) {
+    public CardResource(CardService cardService,
+                        CardMapper cardMapper,
+                        CustomerCardService customerCardService) {
         this.cardService = cardService;
         this.cardMapper = cardMapper;
+        this.customerCardService = customerCardService;
     }
 
     @GetMapping("/status")
@@ -33,7 +41,7 @@ public class CardResource {
 
     @PostMapping
     public ResponseEntity save(@RequestBody CardSaveRequestDTO dto){
-        final Card card = this.cardMapper.toEntity(dto);
+        final Card card = this.cardMapper.cardSaveRequestToEntity(dto);
         this.cardService.save(card);
 
         return ResponseEntity.status(HttpStatus.CREATED).build();
@@ -44,8 +52,16 @@ public class CardResource {
             @RequestParam("income") BigDecimal income){
         final List<Card> cards = this.cardService
                 .getCardsByIncomeLessThanEqual(income);
-        
-        final var dtos = this.cardMapper.toDTO(cards);
+
+        final var dtos = this.cardMapper.toCardResponse(cards);
+
+        return ResponseEntity.ok(dtos);
+    }
+
+    @GetMapping("/customers")
+    public ResponseEntity getCardsByCustomerCPF(@RequestParam("cpf") String cpf){
+        final List<CustomerCard> cards = this.customerCardService.getByCustomerCPF(cpf);
+        final var dtos = this.cardMapper.toCardByCustomerResponse(cards);
 
         return ResponseEntity.ok(dtos);
     }
