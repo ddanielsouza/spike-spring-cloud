@@ -15,5 +15,5 @@ public interface CustomerClient {
     public String status();
 
     @GetMapping
-    public ResponseEntity<CustomerDetails> getCustomerData(@RequestParam("cpf") String cpf);
+    ResponseEntity<CustomerDetails> getCustomerData(@RequestParam("cpf") String cpf);
 }
