@@ -2,12 +2,11 @@ package souza.oliveira.daniel.mscartoes.application.mapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.MappingTarget;
 import souza.oliveira.daniel.mscartoes.application.dto.CardByCustomerResponseDTO;
 import souza.oliveira.daniel.mscartoes.application.dto.CardResponseDTO;
 import souza.oliveira.daniel.mscartoes.application.dto.CardSaveRequestDTO;
-import souza.oliveira.daniel.mscartoes.domain.Card;
-import souza.oliveira.daniel.mscartoes.domain.CustomerCard;
+import souza.oliveira.daniel.mscartoes.domain.entity.Card;
+import souza.oliveira.daniel.mscartoes.domain.entity.CustomerCard;
 
 import java.util.List;
 import java.util.stream.Collectors;

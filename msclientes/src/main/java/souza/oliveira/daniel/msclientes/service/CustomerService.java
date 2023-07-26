@@ -2,7 +2,7 @@ package souza.oliveira.daniel.msclientes.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import souza.oliveira.daniel.msclientes.domain.Customer;
+import souza.oliveira.daniel.msclientes.domain.entity.Customer;
 import souza.oliveira.daniel.msclientes.infra.repository.CustomerRepository;
 
 import javax.transaction.Transactional;

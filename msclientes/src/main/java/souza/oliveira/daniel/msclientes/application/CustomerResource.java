@@ -1,14 +1,13 @@
 package souza.oliveira.daniel.msclientes.application;
 
-import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import souza.oliveira.daniel.msclientes.application.dto.CustomerDetailsResponseDTO;
 import souza.oliveira.daniel.msclientes.application.dto.CustomerSaveRequestDTO;
 import souza.oliveira.daniel.msclientes.application.mapper.CustomerMapper;
-import souza.oliveira.daniel.msclientes.domain.Customer;
+import souza.oliveira.daniel.msclientes.domain.entity.Customer;
 import souza.oliveira.daniel.msclientes.service.CustomerService;
 
 @RestController
@@ -42,12 +41,12 @@ public class CustomerResource {
     }
 
     @GetMapping
-    public ResponseEntity<Customer> getCustomerData(@RequestParam("cpf") String cpf){
+    public ResponseEntity<CustomerDetailsResponseDTO> getCustomerData(@RequestParam("cpf") String cpf){
         var customer = this.customerService.getByCPF(cpf);
 
         if(customer.isEmpty())
             return ResponseEntity.notFound().build();
 
-        return ResponseEntity.ok(customer.get());
+        return ResponseEntity.ok( this.customerMapper.toDTO(customer.get()));
     }
 }

@@ -1,7 +1,7 @@
 package souza.oliveira.daniel.mscartoes.application.dto;
 
 import lombok.Data;
-import souza.oliveira.daniel.mscartoes.domain.CardBrand;
+import souza.oliveira.daniel.mscartoes.domain.entity.CardBrand;
 
 import java.math.BigDecimal;
 

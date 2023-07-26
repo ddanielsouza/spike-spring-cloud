@@ -1,4 +1,4 @@
-package souza.oliveira.daniel.msclientes.domain;
+package souza.oliveira.daniel.msclientes.domain.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

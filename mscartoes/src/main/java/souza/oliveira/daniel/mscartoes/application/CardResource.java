@@ -6,14 +6,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import souza.oliveira.daniel.mscartoes.application.dto.CardSaveRequestDTO;
 import souza.oliveira.daniel.mscartoes.application.mapper.CardMapper;
-import souza.oliveira.daniel.mscartoes.domain.Card;
-import souza.oliveira.daniel.mscartoes.domain.CardBrand;
-import souza.oliveira.daniel.mscartoes.domain.CustomerCard;
+import souza.oliveira.daniel.mscartoes.domain.entity.Card;
+import souza.oliveira.daniel.mscartoes.domain.entity.CustomerCard;
 import souza.oliveira.daniel.mscartoes.services.CardService;
 import souza.oliveira.daniel.mscartoes.services.CustomerCardService;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.List;
 
 @RestController

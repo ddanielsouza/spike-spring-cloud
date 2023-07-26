@@ -2,7 +2,7 @@ package souza.oliveira.daniel.msclientes.infra.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import souza.oliveira.daniel.msclientes.domain.Customer;
+import souza.oliveira.daniel.msclientes.domain.entity.Customer;
 
 import java.util.Optional;
 

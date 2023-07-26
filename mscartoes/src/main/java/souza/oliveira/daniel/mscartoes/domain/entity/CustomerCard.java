@@ -1,4 +1,4 @@
-package souza.oliveira.daniel.mscartoes.domain;
+package souza.oliveira.daniel.mscartoes.domain.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
