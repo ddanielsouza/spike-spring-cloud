@@ -11,6 +11,6 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ResultEvaluateCustomer {
+public class ResultAssessCustomerCredit {
     private List<ApprovedCard> cards;
 }

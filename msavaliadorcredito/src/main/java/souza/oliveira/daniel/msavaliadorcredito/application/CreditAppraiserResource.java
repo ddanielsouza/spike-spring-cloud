@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import souza.oliveira.daniel.msavaliadorcredito.domain.model.CustomerSituation;
-import souza.oliveira.daniel.msavaliadorcredito.domain.model.EvaluateCustomer;
-import souza.oliveira.daniel.msavaliadorcredito.domain.model.ResultEvaluateCustomer;
+import souza.oliveira.daniel.msavaliadorcredito.domain.model.AssessCustomerCredit;
+import souza.oliveira.daniel.msavaliadorcredito.domain.model.ResultAssessCustomerCredit;
 import souza.oliveira.daniel.msavaliadorcredito.services.CreditAppraiserService;
 
 @RestController
@@ -31,11 +31,11 @@ public class CreditAppraiserResource {
     }
 
     @PostMapping
-    public ResponseEntity<ResultEvaluateCustomer> evaluateCustomer(@RequestBody EvaluateCustomer evaluateCustomer) {
+    public ResponseEntity<ResultAssessCustomerCredit> assessCustomerCredit(@RequestBody AssessCustomerCredit assessCustomer) {
 
-        ResultEvaluateCustomer resultEvaluateCustomer = this.creditAppraiserService
-                .evaluateCustomerCards(evaluateCustomer.getCpf(), evaluateCustomer.getIncome());
+        ResultAssessCustomerCredit resultAssessCustomerCredit = this.creditAppraiserService
+                .assessCustomerCredit(assessCustomer.getCpf(), assessCustomer.getIncome());
 
-        return ResponseEntity.ok(resultEvaluateCustomer);
+        return ResponseEntity.ok(resultAssessCustomerCredit);
     }
 }

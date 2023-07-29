@@ -5,7 +5,7 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 @Data
-public class EvaluateCustomer {
+public class AssessCustomerCredit {
     private String cpf;
     private BigDecimal income;
 }

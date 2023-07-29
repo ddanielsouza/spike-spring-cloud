@@ -2,13 +2,11 @@ package souza.oliveira.daniel.msavaliadorcredito.services;
 
 import feign.FeignException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import souza.oliveira.daniel.msavaliadorcredito.application.exception.ApplicationException;
 import souza.oliveira.daniel.msavaliadorcredito.domain.model.ApprovedCard;
-import souza.oliveira.daniel.msavaliadorcredito.domain.model.CustomerDetails;
 import souza.oliveira.daniel.msavaliadorcredito.domain.model.CustomerSituation;
-import souza.oliveira.daniel.msavaliadorcredito.domain.model.ResultEvaluateCustomer;
+import souza.oliveira.daniel.msavaliadorcredito.domain.model.ResultAssessCustomerCredit;
 import souza.oliveira.daniel.msavaliadorcredito.infra.clients.CardClient;
 import souza.oliveira.daniel.msavaliadorcredito.infra.clients.CustomerClient;
 
@@ -44,7 +42,7 @@ public class CreditAppraiserService {
         }
     }
 
-    public ResultEvaluateCustomer evaluateCustomerCards(String cpf, BigDecimal income) {
+    public ResultAssessCustomerCredit assessCustomerCredit(String cpf, BigDecimal income) {
         try {
             final var customer = this.customerClient.getCustomerData(cpf).getBody();
             final var cards = this.cardClient.getCardsByIncomeLessThanEqual(income).getBody();
@@ -59,7 +57,7 @@ public class CreditAppraiserService {
                         .build())
                     .collect(Collectors.toList());
 
-            return ResultEvaluateCustomer.builder().cards(approvedCards).build();
+            return ResultAssessCustomerCredit.builder().cards(approvedCards).build();
         } catch (FeignException.FeignClientException ex) {
             throw new ApplicationException("", ex, ex.status());
         }
