@@ -2,15 +2,16 @@ package souza.oliveira.daniel.msavaliadorcredito.services;
 
 import feign.FeignException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import souza.oliveira.daniel.msavaliadorcredito.application.exception.ApplicationException;
-import souza.oliveira.daniel.msavaliadorcredito.domain.model.ApprovedCard;
-import souza.oliveira.daniel.msavaliadorcredito.domain.model.CustomerSituation;
-import souza.oliveira.daniel.msavaliadorcredito.domain.model.ResultAssessCustomerCredit;
+import souza.oliveira.daniel.msavaliadorcredito.domain.model.*;
 import souza.oliveira.daniel.msavaliadorcredito.infra.clients.CardClient;
 import souza.oliveira.daniel.msavaliadorcredito.infra.clients.CustomerClient;
+import souza.oliveira.daniel.msavaliadorcredito.infra.mqueue.CardIssuancePublisher;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -19,12 +20,14 @@ public class CreditAppraiserService {
     private final static int DECIMAL_TO_PERCENT = 100;
     private final CustomerClient customerClient;
     private final CardClient cardClient;
+    private final CardIssuancePublisher cardIssuancePublisher;
 
     @Autowired
     public CreditAppraiserService(CustomerClient customerClient,
-                                  CardClient cardClient) {
+                                  CardClient cardClient, CardIssuancePublisher cardIssuancePublisher) {
         this.customerClient = customerClient;
         this.cardClient = cardClient;
+        this.cardIssuancePublisher = cardIssuancePublisher;
     }
 
     public CustomerSituation getCustomerSituation(String cpf) {
@@ -60,6 +63,21 @@ public class CreditAppraiserService {
             return ResultAssessCustomerCredit.builder().cards(approvedCards).build();
         } catch (FeignException.FeignClientException ex) {
             throw new ApplicationException("", ex, ex.status());
+        }
+    }
+
+    /**
+     * @param data
+     * @return Fictitious protocol for didactic purposes
+     */
+    public ProtocolCardIssuance sendCardIssuance(RequestCardIssuance data){
+        try{
+            this.cardIssuancePublisher.sendCardIssuanceToQueue(data);
+            var protocol = UUID.randomUUID().toString();
+
+            return new ProtocolCardIssuance(protocol);
+        }catch (Exception e ){
+            throw new ApplicationException("Failed to send card issuance", e, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
