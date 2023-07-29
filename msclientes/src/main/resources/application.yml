@@ -12,3 +12,14 @@ eureka:
       defaultZone: http://admin:admin@localhost:8761/eureka
   instance:
     instance-id: ${spring.cloud.client.hostname}:${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+logging:
+  file:
+    name: ./logs/logs-file.log
