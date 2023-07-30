@@ -1102,3 +1102,4 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 2023-07-29 21:46:30.784  INFO 195713 --- [restartedMain] s.o.d.mscartoes.MscartoesApplication     : Started MscartoesApplication in 4.015 seconds (JVM running for 226.631)
 2023-07-29 21:46:30.792  INFO 195713 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
 2023-07-29 21:46:30.895  INFO 195713 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSCARTOES/192.168.100.9:mscartoes:37374d784ce53ad41d3032250b29fa06 - registration status: 204
+2023-07-29 21:51:30.402  INFO 195713 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
