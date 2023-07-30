@@ -1,4 +1,4 @@
-FROM maven:3.8.5-openjdk-11 AS build
+FROM maven:3.8.5-openjdk-17 AS build
 WORKDIR /app
 
 COPY pom.xml /app/pom.xml
@@ -8,7 +8,7 @@ COPY ./src /app/src
 RUN --mount=type=cache,target=/root/.m2 mvn clean package -DskipTests
 
 
-FROM openjdk:11-jre-slim
+FROM openjdk:17-slim
 WORKDIR /app
 COPY --from=build /app/target/*.jar /app/application.jar
 EXPOSE 8761
