@@ -1936,3 +1936,49 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 2023-07-29 22:16:44.201  INFO 200911 --- [http-nio-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2023-07-29 22:16:44.202  INFO 200911 --- [http-nio-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2023-07-29 22:16:44.224  INFO 200911 --- [http-nio-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 21 ms
+2023-07-29 22:21:11.585  INFO 200911 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-07-29 22:23:31.963  INFO 200911 --- [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application MSCARTOES with eureka with status DOWN
+2023-07-29 22:23:31.964  INFO 200911 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1690680211964, current=DOWN, previous=UP]
+2023-07-29 22:23:31.966  INFO 200911 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSCARTOES/192.168.100.9:mscartoes:6f40e235f8083d6386390689b1d8042d: registering service...
+2023-07-29 22:23:31.977  INFO 200911 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSCARTOES/192.168.100.9:mscartoes:6f40e235f8083d6386390689b1d8042d - registration status: 204
+2023-07-29 22:23:31.990  INFO 200911 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2023-07-29 22:23:32.140  INFO 200911 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2023-07-29 22:23:32.239  INFO 200911 --- [SpringApplicationShutdownHook] o.s.a.r.l.SimpleMessageListenerContainer : Shutdown ignored - container is already stopped
+2023-07-29 22:23:32.243  INFO 200911 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-29 22:23:32.243  INFO 200911 --- [SpringApplicationShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2023-07-29 22:23:32.461  WARN 200911 --- [SpringApplicationShutdownHook] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-212]
+2023-07-29 22:23:32.466  INFO 200911 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-07-29 22:23:32.482  INFO 200911 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-07-29 22:23:32.484  INFO 200911 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2023-07-29 22:23:35.498  INFO 200911 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2023-07-29 22:23:35.506  INFO 200911 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSCARTOES/192.168.100.9:mscartoes:6f40e235f8083d6386390689b1d8042d - deregister  status: 200
+2023-07-29 22:23:35.517  INFO 200911 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2023-07-29 22:49:55.727  INFO 207351 --- [main] s.o.d.m.MscartoesApplicationTests        : Starting MscartoesApplicationTests using Java 17 on dnsouza-notebook with PID 207351 (started by dnsouza in /home/dnsouza/projects/spike-spring-cloud/mscartoes)
+2023-07-29 22:49:55.730  INFO 207351 --- [main] s.o.d.m.MscartoesApplicationTests        : No active profile set, falling back to 1 default profile: "default"
+2023-07-29 22:49:59.360  INFO 207351 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-29 22:49:59.733  INFO 207351 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 328 ms. Found 2 JPA repository interfaces.
+2023-07-29 22:50:00.627  INFO 207351 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=bfa4a583-a047-34d7-acab-a97f4e9fb864
+2023-07-29 22:50:02.419  INFO 207351 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-07-29 22:50:03.342  INFO 207351 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-07-29 22:50:03.528  INFO 207351 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-29 22:50:03.657  INFO 207351 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2023-07-29 22:50:03.993  INFO 207351 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-07-29 22:50:04.403  INFO 207351 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-07-29 22:50:06.847  INFO 207351 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-29 22:50:06.874  INFO 207351 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-29 22:50:11.038  WARN 207351 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-07-29 22:50:19.777  INFO 207351 --- [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2023-07-29 22:50:20.395  WARN 207351 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-07-29 22:50:20.459  INFO 207351 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 17 endpoint(s) beneath base path '/actuator'
+2023-07-29 22:50:20.702  INFO 207351 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-07-29 22:50:20.813  INFO 207351 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#6ff05f85:0/SimpleConnection@75bbeb89 [delegate=amqp://guest@127.0.0.1:5672/, localPort= 53856]
+2023-07-29 22:50:20.944  INFO 207351 --- [main] s.o.d.m.MscartoesApplicationTests        : Started MscartoesApplicationTests in 26.681 seconds (JVM running for 29.263)
+2023-07-29 22:50:21.834  INFO 207351 --- [SpringApplicationShutdownHook] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2023-07-29 22:50:21.841  INFO 207351 --- [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application MSCARTOES with eureka with status DOWN
+2023-07-29 22:50:21.873  INFO 207351 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2023-07-29 22:50:21.907  INFO 207351 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2023-07-29 22:50:21.970  INFO 207351 --- [SpringApplicationShutdownHook] o.s.a.r.l.SimpleMessageListenerContainer : Shutdown ignored - container is already stopped
+2023-07-29 22:50:21.975  INFO 207351 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-29 22:50:21.976  INFO 207351 --- [SpringApplicationShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2023-07-29 22:50:21.999  INFO 207351 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-07-29 22:50:22.006  INFO 207351 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
