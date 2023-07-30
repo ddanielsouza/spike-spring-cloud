@@ -687,6 +687,7 @@
       "frontchannelLogout": false,
       "protocol": "openid-connect",
       "attributes": {
+        "access.token.lifespan": "86400",
         "saml.force.post.binding": "false",
         "saml.multivalued.roles": "false",
         "frontchannel.logout.session.required": "false",
@@ -1430,18 +1431,18 @@
     }
   ],
   "defaultDefaultClientScopes": [
-    "web-origins",
-    "roles",
-    "email",
-    "acr",
     "role_list",
-    "profile"
+    "profile",
+    "email",
+    "roles",
+    "web-origins",
+    "acr"
   ],
   "defaultOptionalClientScopes": [
-    "microprofile-jwt",
+    "offline_access",
     "address",
     "phone",
-    "offline_access"
+    "microprofile-jwt"
   ],
   "browserSecurityHeaders": {
     "contentSecurityPolicyReportOnly": "",
